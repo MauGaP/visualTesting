@@ -8,6 +8,7 @@ import org.visualvalidation.pages.PageFactory;
 import java.io.IOException;
 
 import static org.visualvalidation.tasks.captures.CaptureElement.captureElementScreenshot;
+import static org.visualvalidation.tasks.captures.CaptureScrollingElement.captureScrollingElement;
 import static org.visualvalidation.util.DriverManagement.findElementByCssSelector;
 
 public class FindElementToCapture {
@@ -22,7 +23,10 @@ public class FindElementToCapture {
 
         //TODO create a method that can handle other selectors different from cssSelectors
         WebElement elementToBeCaptured = findElementByCssSelector(elementSelector);
-
-        captureElementScreenshot(elementIdentifier, elementToBeCaptured);
+        if (ElementEntirelyDisplayed.elementIsEntirelyDisplayed(elementToBeCaptured)) {
+            captureElementScreenshot(elementIdentifier, elementToBeCaptured);
+        } else {
+            captureScrollingElement(elementIdentifier, elementToBeCaptured);
+        }
     }
 }
