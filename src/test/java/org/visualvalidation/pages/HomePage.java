@@ -7,7 +7,7 @@ public class HomePage implements BasePage {
     HashMap<String, String> pageElements = new HashMap<String, String>();
 
     public HomePage() {
-        pageElements.put("header", "inkafarma-header > main > header");
+        pageElements.put("header", "inkafarma-header");
         pageElements.put("body", "#home");
         pageElements.put("footer", "inkafarma-footer > footer");
         pageElements.put("mainLoader", ".app-main-loader");
