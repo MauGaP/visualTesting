@@ -1,13 +1,15 @@
 # visualTesting
-
-This is a project I started to explore some concepts about Visual Testing
+This is a project I started to explore some concepts about Visual Testing.
 
 It uses 
-Shutterbug to capture the screenshots
-Selenium for everything related to element navigations
+- Shutterbug to capture the screenshots.
+- Selenium for everything related to UI interaction.
 
-And in the future I would integrate a library to create images wiith the result of two different images.
+In the future I would integrate a library to validate the difference between two different images as a merge of them.
 
-# To execute it
+#DriverLocation
+place chromedriver (https://chromedriver.chromium.org/downloads) in folder:
+- src/test/resources/driver
 
+# To execute
 - mvn clean verify
