@@ -4,7 +4,7 @@ Feature: Compare last images taken with
   I want to see home page and its elements
   In order to validate their styles
 
-  @ImageComparator
+  @ImageCompare
   Scenario: Run the image comparison between golden image and the most resent batch of images
     Given There is a Golden Image Folder
     And There is a recent batch of Images
