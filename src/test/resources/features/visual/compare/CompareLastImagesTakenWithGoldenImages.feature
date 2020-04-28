@@ -9,4 +9,4 @@ Feature: Compare last images taken with
     Given There is a Golden Image Folder
     And There is a recent batch of Images
     When I run the comparison Software
-#    Then There is a new folder with the result of the comparison
+    Then There is a new folder with the result of the comparison

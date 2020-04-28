@@ -86,13 +86,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-<!--testing jmagick -->
-        <dependency>
-            <groupId>jmagick</groupId>
-            <artifactId>jmagick</artifactId>
-            <version>6.6.9</version>
-        </dependency>
-<!--testing im4java -->
+<!--TODO this library should be replaced with one that can run on the server-->
         <dependency>
             <groupId>org.im4java</groupId>
             <artifactId>im4java</artifactId>

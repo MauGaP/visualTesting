@@ -20,6 +20,6 @@ public class CaptureEntireScreenshot {
         ClosePopUps.closePopUps();
         Shutterbug.shootPage(DriverManagement.driver, ScrollStrategy.WHOLE_PAGE, 500)
                 .withName(pageName + FULL_PAGE_SCREEN)
-                .save(PathConstants.TARGET_SCREENSHOT_FOLDER);
+                .save(PathConstants.TAKEN_SCREENSHOT_FOLDER);
     }
 }

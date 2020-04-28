@@ -2,28 +2,24 @@ package org.visualvalidation.questions;
 
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
-import org.visualvalidation.util.commonconstants.PathConstants;
 
 import java.io.File;
 
-import static org.visualvalidation.util.commonconstants.PathConstants.FULL_PAGE_SCREEN;
-import static org.visualvalidation.util.commonconstants.PathConstants.TARGET_SCREENSHOT_FOLDER;
+import static org.visualvalidation.util.commonconstants.PathConstants.*;
 
-public class ValidateCreatedImage {
-
-    //get a file
+public class ValidateCreatedImageOfCapture {
 
     @Then("The image of (.*) in (.*) is saved")
     public static void validateElementImageIsSaved(String elementName, String pageName) {
         String elementIdentifier = pageName + "_" + elementName;
-        File savedImage = new File(TARGET_SCREENSHOT_FOLDER + elementIdentifier);
+        File savedImage = new File(TAKEN_SCREENSHOT_FOLDER + elementIdentifier + PNG_EXTENSION);
         Assert.assertTrue(savedImage.exists());
     }
 
     @Then("The image of entire (.*) is saved")
     public static void validatePageImageIsSaved(String pageName) {
         String pageIdentifier = pageName + FULL_PAGE_SCREEN;
-        File savedImage = new File(TARGET_SCREENSHOT_FOLDER + pageIdentifier);
+        File savedImage = new File(TAKEN_SCREENSHOT_FOLDER + pageIdentifier + PNG_EXTENSION);
         Assert.assertTrue(savedImage.exists());
     }
 }

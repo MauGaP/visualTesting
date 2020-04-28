@@ -29,5 +29,8 @@ hs_err_pid*
 # target folder
 target
 
+# screenshot folder
+screenshots
+
 # driver folder
-src/test/resources/driver/chromedriver.exe
+chromedriver.exe

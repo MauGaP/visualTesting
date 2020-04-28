@@ -10,7 +10,6 @@ public class RunComparison {
     public static void runComparisonSoftware() throws IOException {
         CreateComparisonFolder.createComparisonFolder();
 
-        CompareImages.compareImagesGivenImages();
-
+        CompareImages.compareImagesGivenWithGoldenImages();
     }
 }

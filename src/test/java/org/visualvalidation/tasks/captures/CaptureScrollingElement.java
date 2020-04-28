@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.visualvalidation.tasks.ClosePopUps;
 import org.visualvalidation.util.DriverManagement;
 
-import static org.visualvalidation.util.commonconstants.PathConstants.TARGET_SCREENSHOT_FOLDER;
+import static org.visualvalidation.util.commonconstants.PathConstants.TAKEN_SCREENSHOT_FOLDER;
 
 public class CaptureScrollingElement {
     public static void captureScrollingElement(String elementName, WebElement elementToBeCaptured) {
@@ -16,6 +16,6 @@ public class CaptureScrollingElement {
         PageSnapshot completeScreenshot = Shutterbug.shootPage(DriverManagement.driver, ScrollStrategy.WHOLE_PAGE)
                 .cropAround(elementToBeCaptured, 0, 0);
 
-        completeScreenshot.withName(elementName).save(TARGET_SCREENSHOT_FOLDER);
+        completeScreenshot.withName(elementName).save(TAKEN_SCREENSHOT_FOLDER);
     }
 }
