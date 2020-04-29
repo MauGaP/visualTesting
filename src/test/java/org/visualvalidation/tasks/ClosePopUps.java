@@ -15,10 +15,10 @@ public class ClosePopUps {
         String discountNotNowButtonSelector = identifiedPage.identifyElement(DISCOUNT_NOT_NOW);
 
         if (DriverManagement.findElementsByCssSelector(addressNotNowButtonSelector).size() > 0) {
-            DriverManagement.findElementByCssSelector(addressNotNowButtonSelector).click();
+            DriverManagement.clickElement(DriverManagement.findElementByCssSelector(addressNotNowButtonSelector));
         }
         if (DriverManagement.findElementsByCssSelector(discountNotNowButtonSelector).size() > 0) {
-            DriverManagement.findElementByCssSelector(discountNotNowButtonSelector).click();
+            DriverManagement.clickElement(DriverManagement.findElementByCssSelector(discountNotNowButtonSelector));
         }
     }
 }

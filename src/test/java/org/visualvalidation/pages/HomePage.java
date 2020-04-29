@@ -13,6 +13,7 @@ public class HomePage implements BasePage {
         pageElements.put("mainLoader", ".app-main-loader");
         pageElements.put("enterAddressNotNow", "#notNowAddress");
         pageElements.put("getDiscountsNotNow", "#onesignal-popover-cancel-button");
+        pageElements.put("entire", "inkafarma-business > div");
     }
 
     @Override

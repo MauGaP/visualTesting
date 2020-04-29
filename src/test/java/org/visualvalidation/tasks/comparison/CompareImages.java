@@ -28,7 +28,9 @@ public class CompareImages {
             IMOperation cmpOp = new IMOperation();
 
             // Set the compare metric
-            cmpOp.metric("MSE");
+            cmpOp.metric("MAE");
+
+            cmpOp.fuzz(2.0);
 
             // Add the expected image
             cmpOp.addImage(goldenImage);

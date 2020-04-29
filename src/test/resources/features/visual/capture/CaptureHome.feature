@@ -29,5 +29,5 @@ Feature: Home Screenshots
   @ImageCapture
   Scenario: capture a Screenshot of the Entire Page
     Given The user is on the Inkafarma Page
-    When He captures a screenshot of the entire Home Page
+    When He captures a screenshot of the Entire Home
     Then The image of entire Home is saved

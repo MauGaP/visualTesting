@@ -61,4 +61,9 @@ public class DriverManagement {
     public static int getDriverHeight() {
         return driver.manage().window().getSize().height;
     }
+
+    public static void clickElement(WebElement element) {
+        waitForElementToAppear(element);
+        element.click();
+    }
 }
