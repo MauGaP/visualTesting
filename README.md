@@ -26,4 +26,4 @@ the result of the comparison will be located at:
 
 `/screenshots/Comparison_Result/<resulting images>`  
 
-Another dependency is ImageMagick Installed in the System that execute this tests, I'm working on a solutions to this, in order to execute this tests everywhere (like Jenkins)
+Another dependency is ImageMagick (https://imagemagick.org/index.php) Installed in the System that execute this tests, I'm working on a solutions to this, in order to execute this tests everywhere (like Jenkins)
