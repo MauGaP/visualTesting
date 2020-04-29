@@ -7,7 +7,7 @@ import org.visualvalidation.util.DriverManagement;
 
 import java.io.IOException;
 
-import static org.visualvalidation.util.commonconstants.PathConstants.TARGET_SCREENSHOT_FOLDER;
+import static org.visualvalidation.util.commonconstants.PathConstants.TAKEN_SCREENSHOT_FOLDER;
 
 public class CaptureElement {
 
@@ -16,6 +16,6 @@ public class CaptureElement {
 
         Shutterbug.shootElement(DriverManagement.driver, elementToBeCaptured)
                 .withName(elementName)
-                .save(TARGET_SCREENSHOT_FOLDER);
+                .save(TAKEN_SCREENSHOT_FOLDER);
     }
 }

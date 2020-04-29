@@ -55,12 +55,10 @@ public class DriverManagement {
     }
 
     public static int getDriverWidth() {
-        int driverWidth = driver.manage().window().getSize().width;
-        return driverWidth;
+        return driver.manage().window().getSize().width;
     }
 
     public static int getDriverHeight() {
-        int driverHeight = driver.manage().window().getSize().height;
-        return driverHeight;
+        return driver.manage().window().getSize().height;
     }
 }

@@ -10,6 +10,8 @@ import org.visualvalidation.util.commonconstants.PathConstants;
 
 import java.io.IOException;
 
+import static org.visualvalidation.util.commonconstants.PathConstants.FULL_PAGE_SCREEN;
+
 public class CaptureEntireScreenshot {
 
     @When("He captures a screenshot of the entire (.*) Page")
@@ -17,7 +19,7 @@ public class CaptureEntireScreenshot {
         WaitForHomeToLoad.waitForHomeToLoad(pageName);
         ClosePopUps.closePopUps();
         Shutterbug.shootPage(DriverManagement.driver, ScrollStrategy.WHOLE_PAGE, 500)
-                .withName(pageName + "_FullPageScreen")
-                .save(PathConstants.TARGET_SCREENSHOT_FOLDER);
+                .withName(pageName + FULL_PAGE_SCREEN)
+                .save(PathConstants.TAKEN_SCREENSHOT_FOLDER);
     }
 }
