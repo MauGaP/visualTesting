@@ -86,7 +86,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-<!--TODO this library should be replaced with one that can run on the server-->
         <dependency>
             <groupId>org.im4java</groupId>
             <artifactId>im4java</artifactId>
