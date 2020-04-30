@@ -30,7 +30,8 @@ public class CompareImages {
             // Set the compare metric
             cmpOp.metric("MAE");
 
-            cmpOp.fuzz(2.0);
+            // TODO find a fuzz level to ignore some minor changes
+            cmpOp.fuzz(10.0);
 
             // Add the expected image
             cmpOp.addImage(goldenImage);
