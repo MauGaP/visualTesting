@@ -33,6 +33,7 @@ public class DriverManagement {
     }
 
     public static void navigateTo(String url) {
+        initializeDriver();
         driver.get(url);
     }
 

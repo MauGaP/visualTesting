@@ -1,4 +1,4 @@
-Feature: Compare last images taken with
+Feature: Compare last images taken with golden images
 
   As an anonymous user
   I want to see home page and its elements
