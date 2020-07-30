@@ -12,7 +12,8 @@ public class ValidateCreatedImageOfCapture {
     @Then("The image of (.*) in (.*) is saved")
     public static void validateElementImageIsSaved(String elementName, String pageName) {
         String elementIdentifier = pageName + "_" + elementName;
-        File savedImage = new File(TAKEN_SCREENSHOT_FOLDER + elementIdentifier + PNG_EXTENSION);
+        File savedImage = new File(TAKEN_SCREENSHOT_FOLDER + elementIdentifier);
+        System.out.println("savedImage: ", savedImage);
         Assert.assertTrue(savedImage.exists());
     }
 
@@ -20,6 +21,7 @@ public class ValidateCreatedImageOfCapture {
     public static void validatePageImageIsSaved(String pageName) {
         String pageIdentifier = pageName + FULL_PAGE_SCREEN;
         File savedImage = new File(TAKEN_SCREENSHOT_FOLDER + pageIdentifier + PNG_EXTENSION);
+        System.out.println("savedImage: ", savedImage);
         Assert.assertTrue(savedImage.exists());
     }
 }
