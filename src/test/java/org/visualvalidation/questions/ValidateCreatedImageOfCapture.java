@@ -21,5 +21,6 @@ public class ValidateCreatedImageOfCapture {
         String pageIdentifier = pageName + FULL_PAGE_SCREEN;
         File savedImage = new File(TAKEN_SCREENSHOT_FOLDER + pageIdentifier + PNG_EXTENSION);
         Assert.assertTrue(savedImage.exists());
+        //esto es un comment
     }
 }
