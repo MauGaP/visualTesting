@@ -8,7 +8,7 @@ import static org.visualvalidation.util.commonconstants.PathConstants.COMPARISON
 
 public class ValidateCreatedImageOfComparison {
     public static void validateCreatedComparisonImage(String imageName) {
-        File savedImage =new File(COMPARISON_RESULT + imageName);
+        File savedImage = new File(COMPARISON_RESULT + imageName);
         Assert.assertTrue(savedImage.exists());
     }
 }
