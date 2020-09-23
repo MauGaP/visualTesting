@@ -44,8 +44,7 @@ public class CompareImages {
 
             try {
                 compare.run(cmpOp);
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
             }
         }
     }

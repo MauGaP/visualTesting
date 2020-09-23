@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.visualvalidation.util.commonconstants.TimeOutConstants;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -35,6 +37,18 @@ public class DriverManagement {
     public static void navigateTo(String url) {
         initializeDriver();
         driver.get(url);
+    }
+
+    public static String getDomainName(String url) throws URISyntaxException {
+        URI uri = new URI(url);
+        String domain = uri.getHost();
+        return domain.startsWith("www.") ? domain.substring(4) : domain;
+    }
+
+    public static String getURL() {
+        String url = driver.getCurrentUrl();
+        return url;
+
     }
 
     public static void waitForElementToAppear(WebElement elementSelector) {
