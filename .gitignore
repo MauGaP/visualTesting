@@ -34,3 +34,6 @@ screenshots/
 
 # driver folder
 /src/test/resources/driver/chromedriver.exe
+
+# firebase key folder
+/src/test/resources/firebasekey/
