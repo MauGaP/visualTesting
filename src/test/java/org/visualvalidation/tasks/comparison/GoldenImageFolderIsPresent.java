@@ -5,7 +5,7 @@ import org.junit.Assert;
 
 import java.io.File;
 
-import static org.visualvalidation.util.commonconstants.PathConstants.GOLDEN_IMAGE_FOLDER;
+import static org.visualvalidation.util.FolderScanner.GOLDEN_IMAGE_FOLDER;
 
 public class GoldenImageFolderIsPresent {
 
