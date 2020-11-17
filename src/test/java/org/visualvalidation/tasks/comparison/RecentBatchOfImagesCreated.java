@@ -5,13 +5,14 @@ import org.junit.Assert;
 
 import java.io.File;
 
-import static org.visualvalidation.util.commonconstants.PathConstants.TAKEN_SCREENSHOT_FOLDER;
+import static org.visualvalidation.util.FolderScanner.SCREENSHOT_MAIN_FOLDER;
 
 public class RecentBatchOfImagesCreated {
 
     @Given("There is a recent batch of Images")
-    public static void resentBatchOfImagesCreated() {
-        File savedImage = new File(TAKEN_SCREENSHOT_FOLDER);
+    public static void recentBatchOfImagesCreated() {
+
+        File savedImage = new File(SCREENSHOT_MAIN_FOLDER);
         Assert.assertTrue(savedImage.exists());
     }
 }

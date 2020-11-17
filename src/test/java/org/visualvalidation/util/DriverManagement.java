@@ -1,11 +1,12 @@
 package org.visualvalidation.util;
 
+import net.thucydides.core.util.EnvironmentVariables;
+import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.visualvalidation.util.commonconstants.TimeOutConstants;
@@ -15,18 +16,29 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static io.appium.java_client.remote.MobilePlatform.WINDOWS;
+
 public class DriverManagement {
 
     public static WebDriver driver = null;
 
+    public static EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
+    public static final String envURL = variables.getProperty("envURL");
+
     public static void initializeDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
+            String chromeSwitches = variables.getProperty("chrome.switches");
+            String OS = variables.getProperty("sun.desktop");
+            String webDriverLocation = "";
+            if (OS.equals(WINDOWS.toLowerCase())) {
+                webDriverLocation = variables.getProperty("driver.windows.webdriver.chrome.driver");
+            }
+
+            System.setProperty("webdriver.chrome.driver", webDriverLocation);
+
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--incognito", "--disable-download-notification");
-            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-            driver = new ChromeDriver(capabilities);
+            options.addArguments(chromeSwitches);
+            driver = new ChromeDriver(options);
         }
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(TimeOutConstants.SHORT_TIMEOUT, TimeUnit.SECONDS);
@@ -35,20 +47,29 @@ public class DriverManagement {
     }
 
     public static void navigateTo(String url) {
-        initializeDriver();
+        if (driver == null) {
+            initializeDriver();
+        }
         driver.get(url);
     }
 
     public static String getDomainName(String url) throws URISyntaxException {
-        URI uri = new URI(url);
-        String domain = uri.getHost();
-        return domain.startsWith("www.") ? domain.substring(4) : domain;
+        if (driver == null) {
+            return envURL;
+        } else {
+            URI uri = new URI(url);
+            String domain = uri.getHost();
+            return domain.startsWith("www.") ? domain.substring(4) : domain;
+        }
     }
 
     public static String getURL() {
-        String url = driver.getCurrentUrl();
-        return url;
-
+        if (driver == null) {
+            return envURL;
+        } else {
+            String url = driver.getCurrentUrl();
+            return url;
+        }
     }
 
     public static void waitForElementToAppear(WebElement elementSelector) {

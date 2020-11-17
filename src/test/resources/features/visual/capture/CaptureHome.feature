@@ -24,10 +24,3 @@ Feature: Home Screenshots
     Given The user is on the Inkafarma Page
     When He captures a screenshot of the Footer in Home
     Then The image of Footer in Home is saved
-
-  @Home
-  @ImageCapture
-  Scenario: capture a Screenshot of the Entire Page
-    Given The user is on the Inkafarma Page
-    When He captures a screenshot of the Entire Home
-    Then The image of entire Home is saved

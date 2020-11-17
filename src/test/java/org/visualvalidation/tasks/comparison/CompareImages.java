@@ -1,50 +1,38 @@
 package org.visualvalidation.tasks.comparison;
 
-import org.im4java.core.CompareCmd;
-import org.im4java.core.IMOperation;
-import org.im4java.process.StandardStream;
+import com.resemble.Comparison;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static org.visualvalidation.util.commonconstants.PathConstants.*;
+import static org.visualvalidation.util.DriverManagement.envURL;
+import static org.visualvalidation.util.FolderScanner.GOLDEN_IMAGE_FOLDER;
+import static org.visualvalidation.util.commonconstants.GeneratedPaths.TAKEN_SCREENSHOT_FOLDER;
+import static org.visualvalidation.util.commonconstants.PathConstants.COMPARISON_RESULT;
 
 public class CompareImages {
-
     public static void compareImagesGivenWithGoldenImages() throws IOException {
 
         List imageNames = ScanGoldenImageFolderForImages.scanGoldenImageFolderForImages();
 
         for (Object imageName : imageNames) {
 
-            String goldenImage = GOLDEN_IMAGE_FOLDER + imageName;
-            String imageToCompare = TAKEN_SCREENSHOT_FOLDER + imageName;
-            String imageDiff = COMPARISON_RESULT + imageName;
+            String goldenImagePath = GOLDEN_IMAGE_FOLDER + envURL + "/" + imageName;
+            String imageToComparePath = TAKEN_SCREENSHOT_FOLDER + imageName;
+            String imageDiffPath = COMPARISON_RESULT + envURL + "/" + imageName;
 
-            CompareCmd compare = new CompareCmd();
+            String[] arrayOfImages = {goldenImagePath, imageToComparePath};
 
-            // For metric-output
-            compare.setErrorConsumer(StandardStream.STDERR);
-            IMOperation cmpOp = new IMOperation();
+            BufferedImage diff = Comparison.compare(arrayOfImages);
 
-            // Set the compare metric
-            cmpOp.metric("MAE");
+            File diffedImage = new File(imageDiffPath);
 
-            // TODO find a fuzz level to ignore some minor changes
-            cmpOp.fuzz(10.0);
-
-            // Add the expected image
-            cmpOp.addImage(goldenImage);
-
-            // Add the current image
-            cmpOp.addImage(imageToCompare);
-
-            // This stores the difference
-            cmpOp.addImage(imageDiff);
-
-            try {
-                compare.run(cmpOp);
-            } catch (Exception ex) {
+            ImageIO.write(diff, "PNG", diffedImage);
+            if (!ImageIO.write(diff, "PNG", diffedImage)) {
+                throw new RuntimeException("Unexpected error writing image");
             }
         }
     }

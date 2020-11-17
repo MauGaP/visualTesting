@@ -33,4 +33,7 @@ target
 screenshots/
 
 # driver folder
-/src/test/resources/driver/chromedriver.exe
+/src/test/resources/driver/
+
+# firebase key folder
+/src/test/resources/firebasekey/

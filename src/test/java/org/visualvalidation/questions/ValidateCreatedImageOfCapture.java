@@ -6,6 +6,7 @@ import org.junit.Assert;
 import java.io.File;
 
 import static org.visualvalidation.util.commonconstants.PathConstants.*;
+import static org.visualvalidation.util.commonconstants.GeneratedPaths.TAKEN_SCREENSHOT_FOLDER;
 
 public class ValidateCreatedImageOfCapture {
 

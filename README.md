@@ -6,7 +6,7 @@ It uses
 - Shutterbug to capture the screenshots.
 - Selenium for everything related to UI interaction.
 
-#DriverLocation
+# Driver Location
 place chromedriver (https://chromedriver.chromium.org/downloads) in folder:
 - `src/test/resources/driver`
 
@@ -27,3 +27,7 @@ the result of the comparison will be located at:
 `/screenshots/Comparison_Result/<resulting images>`  
 
 Another dependency is ImageMagick (https://imagemagick.org/index.php) Installed in the System that execute this tests, I'm working on a solutions to this, in order to execute this tests everywhere (like Jenkins)
+#### How to install ImageMagick on Windows:
+1 - download https://imagemagick.org/download/binaries/ImageMagick-7.0.10-33-Q16-HDRI-x64-dll.exe and install
+2 - 
+3 - 

@@ -7,7 +7,7 @@ import org.visualvalidation.util.DriverManagement;
 
 import java.io.IOException;
 
-import static org.visualvalidation.util.commonconstants.PathConstants.TAKEN_SCREENSHOT_FOLDER;
+import static org.visualvalidation.util.commonconstants.GeneratedPaths.TAKEN_SCREENSHOT_FOLDER;
 
 public class CaptureElement {
 
